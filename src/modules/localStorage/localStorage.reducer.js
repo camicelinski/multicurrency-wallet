@@ -5,7 +5,7 @@ const initState = {
 }
 
 const reducer = (state = initState, action) => {
-  switch(action.type) {    
+  switch (action.type) {
     case types.RENDER_REPOS:
       return {
         ...state,

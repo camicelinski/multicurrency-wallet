@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-// import githubReducer from '../modules/github/github.reductor'
-// import stackoverflowReducer from '../modules/stackoverflow/stackoverflow.reductor'
+import formReducer from '../modules/form/form.reducer'
+import localStorageReducer from '../modules/localStorage/localStorage.reducer'
 
 const reducers = combineReducers({
-  // github: githubReducer,
-  // stackoverflow: stackoverflowReducer
+  form: formReducer,
+  localStorage: localStorageReducer
 })
 
 export default reducers

@@ -1,3 +1,3 @@
-import GitHub from "./github";
+import localStorage from './localStorage'
 
-export default GitHub
+export default localStorage

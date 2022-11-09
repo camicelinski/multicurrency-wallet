@@ -1,10 +1,20 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import useRow from '../../hooks/useRow'
+import { setFieldValue } from '../../modules/form/form.actions'
+import { addRow } from '../../modules/localStorage/localStorage.actions'
+import { changeValueToNumberIfInputTypeNumber } from '../../helpers/helperFunctions'
 import FormField from '../FormField'
 import formFields from '../../data/formFields'
 
 const Form = () => {
-  const handleChange = () => {
+  // const values = useSelector((state) => state.form)
+  const dispatch = useDispatch()
+  const [valuesForTableRow] = useRow()
 
+  const handleChange = (e, name, type) => {
+    const fieldValue = changeValueToNumberIfInputTypeNumber(e.target.value, type)
+    dispatch(setFieldValue(name, fieldValue))
   }
 
   const renderFormFields = () => {
@@ -27,6 +37,8 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const row = valuesForTableRow
+    dispatch(addRow(row))
   }
 
   return (
@@ -34,6 +46,7 @@ const Form = () => {
       onSubmit={handleSubmit}
     >
       {renderFormFields()}
+      <button>submit</button>
     </form>
   )
 }

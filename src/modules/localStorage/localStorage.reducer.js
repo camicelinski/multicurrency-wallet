@@ -1,15 +1,18 @@
-import types from './github.types'
+import types from './localStorage.types'
 
 const initState = {
-  repos: []
+  rows: []
 }
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case types.RENDER_REPOS:
+    case types.ADD_ROW:
       return {
         ...state,
-        repos: action.payload.repos
+        rows: [
+          ...state.rows,
+          action.payload
+        ]
       }
     default:
       return state

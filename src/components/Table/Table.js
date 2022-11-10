@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TableRow from '../TableRow/TableRow'
 
 const Table = (props) => {
-  const { heads } = props
+  const { heads, rows } = props
 
   const renderTheads = () => {
     return heads.map((item) => {
@@ -12,7 +13,15 @@ const Table = (props) => {
   }
 
   const renderTrows = () => {
-
+    const trows = rows.map((row) => {
+      return (
+        <TableRow
+          key={row.key}
+          row={row.cells}
+        />
+      )
+    })
+    return trows
   }
 
   return (
@@ -28,7 +37,8 @@ const Table = (props) => {
 }
 
 Table.propTypes = {
-  heads: PropTypes.arrayOf(PropTypes.object)
+  heads: PropTypes.arrayOf(PropTypes.object),
+  rows: PropTypes.array
 }
 
 export default Table

@@ -2,33 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const TableRow = (props) => {
-  const { heads } = props
+  const { row } = props
 
-  const renderTheads = () => {
-    return heads.map((item) => {
-      const { head } = item
-      return <th key={head}>{head}</th>
+  const renderCells = () => {
+    return row.map((cell, index) => {
+      return <td key={index}>{cell}</td>
     })
   }
 
-  const renderTrows = () => {
-
-  }
-
   return (
-    <table>
-      <thead>
-        <tr>{renderTheads()}</tr>
-      </thead>
-      <tbody>
-        {renderTrows()}
-      </tbody>
-    </table>
+    <tr>
+      {renderCells()}
+    </tr>
   )
 }
 
 TableRow.propTypes = {
-  heads: PropTypes.arrayOf(PropTypes.object)
+  row: PropTypes.array
 }
 
 export default TableRow

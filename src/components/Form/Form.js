@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import useRow from '../../hooks/useRow'
 import { setFieldValue } from '../../modules/form/form.actions'
-import { addRow } from '../../modules/localStorage/localStorage.actions'
+import { addRow, pushRowsToLS, getRowsfromLS } from '../../modules/localStorage/localStorage.actions'
 import { changeValueToNumberIfInputTypeNumber } from '../../helpers/helperFunctions'
 import FormField from '../FormField'
 import formFields from '../../data/formFields'
@@ -11,6 +11,11 @@ const Form = () => {
   // const values = useSelector((state) => state.form)
   const dispatch = useDispatch()
   const [valuesForTableRow] = useRow()
+
+  useEffect(() => {
+    dispatch(getRowsfromLS())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleChange = (e, name, type) => {
     const fieldValue = changeValueToNumberIfInputTypeNumber(e.target.value, type)
@@ -39,6 +44,7 @@ const Form = () => {
     e.preventDefault()
     const row = valuesForTableRow
     dispatch(addRow(row))
+    dispatch(pushRowsToLS())
   }
 
   return (

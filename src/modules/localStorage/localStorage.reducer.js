@@ -14,6 +14,14 @@ const reducer = (state = initState, action) => {
           action.payload
         ]
       }
+    case types.GET_ROWS:
+      return {
+        ...state,
+        rows: [
+          ...state.rows,
+          ...action.payload
+        ]
+      }
     default:
       return state
   }

@@ -1,7 +1,7 @@
-class localStorage {
+class LocalStorage {
   defaultKey = 'rows'
 
-  getItemFromLS () {
+  getItem () {
     if (localStorage.getItem(this.defaultKey)) {
       const newItem = JSON.parse(localStorage.getItem(this.defaultKey))
       return newItem
@@ -10,9 +10,9 @@ class localStorage {
     return []
   }
 
-  pushItemToLS (item) {
+  pushItem (item) {
     localStorage.setItem(this.defaultKey, JSON.stringify(item))
   }
 }
 
-export default localStorage
+export default LocalStorage

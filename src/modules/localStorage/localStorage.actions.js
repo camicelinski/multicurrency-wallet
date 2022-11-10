@@ -1,4 +1,7 @@
+import LocalStorage from './localStorage'
 import types from './localStorage.types'
+
+const LS = new LocalStorage()
 
 export const addRow = (row) => {
   return {
@@ -12,4 +15,14 @@ export const getRows = (rows) => {
     type: types.GET_ROWS,
     payload: rows
   }
+}
+
+export const getRowsfromLS = () => (dispatch, getState) => {
+  const rowsFromLS = LS.getItem()
+  dispatch(getRows(rowsFromLS))
+}
+
+export const pushRowsToLS = () => (dispatch, getState) => {
+  const rows = getState().localStorage.rows
+  LS.pushItem(rows)
 }

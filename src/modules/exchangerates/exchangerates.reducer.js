@@ -1,15 +1,21 @@
 import types from './exchangerates.types'
 
 const initState = {
-  repos: []
+  rate: null,
+  priceByDate: null
 }
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case types.RENDER_REPOS:
+    case types.SET_CURRENT_RATE:
       return {
         ...state,
-        repos: action.payload.repos
+        rate: action.payload
+      }
+    case types.SET_PRICE_BY_DATE:
+      return {
+        ...state,
+        priceByDate: action.payload
       }
     default:
       return state

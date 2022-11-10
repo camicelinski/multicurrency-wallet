@@ -1,3 +1,3 @@
-import GitHub from "./exchangerates";
+import ExchangeratesAPI from './exchangerates.api'
 
-export default GitHub
+export default ExchangeratesAPI

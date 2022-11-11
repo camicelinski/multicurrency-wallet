@@ -1,8 +1,8 @@
 import types from './exchangerates.types'
 
 const initState = {
-  rate: null,
-  priceByDate: null
+  currentRate: '',
+  rateByDate: ''
 }
 
 const reducer = (state = initState, action) => {
@@ -10,12 +10,12 @@ const reducer = (state = initState, action) => {
     case types.SET_CURRENT_RATE:
       return {
         ...state,
-        rate: action.payload
+        currentRate: action.payload
       }
     case types.SET_PRICE_BY_DATE:
       return {
         ...state,
-        priceByDate: action.payload
+        rateByDate: action.payload
       }
     default:
       return state

@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import useRow from '../../hooks/useRow'
 import { setFieldValue } from '../../modules/form/form.actions'
 import { addRow, pushRowsToLS, getRowsfromLS } from '../../modules/localStorage/localStorage.actions'
+import { getCurrentRate, getPriceByDate } from '../../modules/exchangerates/exchangerates.actions'
 import { changeValueToNumberIfInputTypeNumber } from '../../helpers/helperFunctions'
 import FormField from '../FormField'
 import formFields from '../../data/formFields'
 
 const Form = () => {
-  // const values = useSelector((state) => state.form)
+  const values = useSelector((state) => state.form)
+  const { rateByDate } = useSelector((state) => state.exchangerates)
   const dispatch = useDispatch()
   const [valuesForTableRow] = useRow()
 
@@ -17,7 +19,12 @@ const Form = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleChange = (e, name, type) => {
+  const handleInputChange = (e, name, type) => {
+    if (e.target.name === 'dateOfPurchase') {
+      dispatch(getPriceByDate(e.target.value, values.currency))
+      dispatch(setFieldValue('price', rateByDate))
+    }
+
     const fieldValue = changeValueToNumberIfInputTypeNumber(e.target.value, type)
     dispatch(setFieldValue(name, fieldValue))
   }
@@ -31,10 +38,10 @@ const Form = () => {
           name={name}
           label={label}
           type={type}
-          // value={values[name]}
+          value={values[name]}
           step={step || null}
           required={required}
-          onChange={(e) => handleChange(e, name, type)}
+          onChange={(e) => handleInputChange(e, name, type)}
         />
       )
     })
@@ -42,13 +49,34 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const row = valuesForTableRow
-    dispatch(addRow(row))
+    // dispatch(getCurrentRate(values.currency))
+    // const row = valuesForTableRow
+    dispatch(addRow(valuesForTableRow))
     dispatch(pushRowsToLS())
+  }
+  /*
+  const handleFormChange = (e) => {
+    if (e.target.name === 'dateOfPurchase') {
+      dispatch(getPriceByDate(e.target.value, values.currency))
+    }
+  }
+  */
+  const handleBlur = (e) => {
+    if (e.target.name === 'currency') {
+      const currency = e.target.value
+      console.log(currency)
+      dispatch(getCurrentRate(values.currency))
+    }
+    if (e.target.name === 'dateOfPurchase') {
+      console.log(rateByDate)
+      dispatch(setFieldValue('price', rateByDate))
+    }
   }
 
   return (
     <form
+      // onChange={handleFormChange}
+      onBlur={handleBlur}
       onSubmit={handleSubmit}
     >
       {renderFormFields()}

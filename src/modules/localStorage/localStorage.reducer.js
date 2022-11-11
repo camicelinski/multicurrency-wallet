@@ -18,7 +18,7 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         rows: [
-          ...state.rows,
+          // ...state.rows,
           ...action.payload
         ]
       }

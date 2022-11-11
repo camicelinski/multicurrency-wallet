@@ -3,12 +3,13 @@ class ExchangeratesAPI {
   key = 'DUP3OxiK4WG5KtI8X6DSyq3WTtxJ204Z'
   defaultCurrency = 'PLN'
 
-  getCurrentRate = (base = 'EUR', currency = this.defaultCurrency) => {
-    return this._fetch(`/latest?base=${base}`, currency)
+  getRate = (currency) => {
+    console.log(currency)
+    return this._fetch(`/latest?base=${currency}`)
   }
 
-  getRatebyDate = (date, base = 'EUR', currency = this.defaultCurrency) => {
-    return this._fetch(`/${date}?base=${base}`, currency)
+  getRatebyDate = (date, currency) => {
+    return this._fetch(`/${date}?base=${currency}`)
   }
 
   getCurrenciesList = (currency) => {
@@ -23,7 +24,7 @@ class ExchangeratesAPI {
     return resp
   }
 
-  _fetch (additionalPath = '', currency) {
+  _fetch (additionalPath = '') {
     const url = this.url + additionalPath
 
     const myHeaders = new Headers()
@@ -38,7 +39,8 @@ class ExchangeratesAPI {
     return fetch(url, requestOptions)
       .then(this.handleErrors)
       .then((resp) => resp.json())
-      .then((resp) => resp.rates[currency])
+      // .then((resp) => console.log(resp.rates[this.defaultCurrency]))
+      // .then((resp) => resp.rates[this.defaultCurrency])
   }
 }
 

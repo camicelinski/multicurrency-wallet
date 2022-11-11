@@ -1,6 +1,6 @@
 import types from './exchangerates.types'
 import ExchangeratesAPI from './exchangerates.api'
-import { setFieldValue } from '../form/form.actions'
+// import { setFieldValue } from '../form/form.actions'
 
 const ratesAPI = new ExchangeratesAPI()
 
@@ -11,19 +11,22 @@ export const setCurrentRate = (rate) => {
   }
 }
 
-export const setPriceByDate = (price) => {
+export const setRateByDate = (rate) => {
   return {
     type: types.SET_PRICE_BY_DATE,
-    payload: price.toFixed(2)
+    payload: rate.toFixed(2)
   }
 }
 
-export const getCurrentRate = (base = 'EUR', currency = 'PLN') => (dispatch, getState) => {
-  ratesAPI.getCurrentRate(base, currency)
-    .then((resp) => dispatch(setCurrentRate(resp)))
+export const getCurrentRate = (currency) => (dispatch, getState) => {
+  console.log(currency)
+  ratesAPI.getRate(currency)
+    .then((resp) => dispatch(setCurrentRate(resp.rates.PLN)))
 }
 
-export const getPriceByDate = (date, base = 'EUR', currency = 'PLN') => (dispatch, getState) => {
-  ratesAPI.getRatebyDate(date, base, currency)
-    .then((resp) => dispatch(setFieldValue('price', resp.toFix)))
+export const getPriceByDate = (date, currency) => (dispatch, getState) => {
+  ratesAPI.getRatebyDate(date, currency)
+    // .then(resp => console.log(resp.rates.PLN))
+    .then((resp) => dispatch(setRateByDate(resp.rates.PLN)))
+    // .then((resp) => dispatch(setFieldValue('price', resp.rates.PLN.toFixed(2))))
 }

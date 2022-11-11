@@ -17,7 +17,7 @@ const Table = (props) => {
       return (
         <TableRow
           key={row.key}
-          row={row.cells}
+          row={row}
         />
       )
     })

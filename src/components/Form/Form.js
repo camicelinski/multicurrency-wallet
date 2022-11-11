@@ -67,10 +67,10 @@ const Form = () => {
       console.log(currency)
       dispatch(getCurrentRate(values.currency))
     }
-    if (e.target.name === 'dateOfPurchase') {
+    /* if (e.target.name === 'dateOfPurchase') {
       console.log(rateByDate)
       dispatch(setFieldValue('price', rateByDate))
-    }
+    } */
   }
 
   return (

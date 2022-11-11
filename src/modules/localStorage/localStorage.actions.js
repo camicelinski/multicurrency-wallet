@@ -17,6 +17,13 @@ export const getRows = (rows) => {
   }
 }
 
+export const removeRow = (key) => {
+  return {
+    type: types.REMOVE_ROW,
+    payload: key
+  }
+}
+
 export const getRowsfromLS = () => (dispatch, getState) => {
   const rowsFromLS = LS.getItem()
   dispatch(getRows(rowsFromLS))

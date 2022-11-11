@@ -22,6 +22,11 @@ const reducer = (state = initState, action) => {
           ...action.payload
         ]
       }
+    case types.REMOVE_ROW:
+      return {
+        ...state,
+        rows: state.rows.filter((row) => row.key !== action.payload)
+      }
     default:
       return state
   }

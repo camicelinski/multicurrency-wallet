@@ -13,3 +13,9 @@ export const submitForm = () => {
     payload: true
   }
 }
+
+export const clearFields = () => {
+  return {
+    type: types.CLEAR_FIELDS
+  }
+}

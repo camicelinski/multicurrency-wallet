@@ -19,6 +19,13 @@ export const setRateByDate = (rate) => {
   }
 }
 
+export const setCurrenciesList = (rates) => {
+  return {
+    type: types.SET_CURRENCIES_LIST,
+    payload: Object.keys(rates)
+  }
+}
+
 export const getCurrentRate = (currency) => (dispatch, getState) => {
   console.log(currency)
   ratesAPI.getRate(currency)
@@ -31,4 +38,9 @@ export const getPriceByDate = (date, currency) => (dispatch, getState) => {
     // .then(resp => console.log(resp.rates.PLN))
     .then((resp) => dispatch(setRateByDate(resp.rates.PLN)))
     // .then((resp) => dispatch(setFieldValue('price', (resp.rates.PLN).toFixed(2))))
+}
+
+export const getCurrenciesList = () => (dispatch, getState) => {
+  ratesAPI.getCurrenciesList()
+    .then((resp) => dispatch(setCurrenciesList(resp.rates)))
 }

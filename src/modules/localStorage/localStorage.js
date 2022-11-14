@@ -13,6 +13,10 @@ class LocalStorage {
   pushItem (item) {
     localStorage.setItem(this.defaultKey, JSON.stringify(item))
   }
+
+  clear () {
+    localStorage.clear()
+  }
 }
 
 export default LocalStorage

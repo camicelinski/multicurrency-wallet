@@ -17,7 +17,7 @@ export const getRows = (rows) => {
   }
 }
 
-export const removeRow = (key) => {
+export const removeRowFromState = (key) => {
   return {
     type: types.REMOVE_ROW,
     payload: key

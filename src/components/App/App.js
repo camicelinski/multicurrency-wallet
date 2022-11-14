@@ -1,12 +1,15 @@
 import React from 'react'
-import Form from '../Form'
-import TableContainer from '../../containers/TableContainer'
+import CurrencyWallet from '../CurrencyWallet'
+import Header from '../Header/'
+import { ResetStyle, GlobalStyle } from '../../styled'
 
 export const App = () => {
   return (
     <div>
-      <Form />
-      <TableContainer />
+      <ResetStyle />
+      <GlobalStyle />
+      <Header />
+      <CurrencyWallet />
     </div>
   )
 }

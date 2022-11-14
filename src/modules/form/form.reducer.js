@@ -16,6 +16,9 @@ const reducer = (state = setInitState(), action) => {
         ...state,
         [action.payload.name]: action.payload.value
       }
+    case formTypes.CLEAR_FIELDS:
+      state = setInitState()
+      return state
     default:
       return state
   }

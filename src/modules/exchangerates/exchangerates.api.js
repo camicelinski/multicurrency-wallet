@@ -1,6 +1,6 @@
 class ExchangeratesAPI {
   url = 'https://api.apilayer.com/exchangerates_data'
-  key = 'DUP3OxiK4WG5KtI8X6DSyq3WTtxJ204Z'
+  key = 'A0EDR3VoQhkOAu0onLT5bSwoPNMPsZcd'
   defaultCurrency = 'PLN'
 
   getRate = (currency) => {
@@ -12,8 +12,8 @@ class ExchangeratesAPI {
     return this._fetch(`/${date}?base=${currency}`)
   }
 
-  getCurrenciesList = (currency) => {
-    return this._fetch('/latest', currency)
+  getCurrenciesList = () => {
+    return this._fetch('/latest')
   }
 
   handleErrors (resp) {

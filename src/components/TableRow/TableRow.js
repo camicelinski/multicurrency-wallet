@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
-import { removeRow } from '../../modules/localStorage/localStorage.actions'
+import { removeRowFromState, pushRowsToLS } from '../../modules/localStorage/localStorage.actions'
 
 const TableRow = (props) => {
   const { row } = props
@@ -13,12 +13,17 @@ const TableRow = (props) => {
     })
   }
 
+  const removeRow = () => {
+    dispatch(removeRowFromState(row.key))
+    dispatch(pushRowsToLS())
+  }
+
   return (
     <tr>
       {renderCells()}
       <td>
         <button
-          onClick={() => dispatch(removeRow(row.key))}
+          onClick={removeRow}
         >
           X
         </button>

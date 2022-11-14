@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import StyledForm from './Form.styled'
+import Button from '../Button'
 
 const Form = (props) => {
   const { onBlur, onSubmit, children } = props
 
   return (
-    <form
+    <StyledForm
       onBlur={(e) => onBlur(e)}
       onSubmit={(e) => onSubmit(e)}
       noValidate
     >
       {children}
-      <button>submit</button>
-    </form>
+      <Button>add</Button>
+    </StyledForm>
   )
 }
 

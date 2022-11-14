@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TableRow from '../TableRow/TableRow'
+import StyledTable from './Table.styled'
 
 const Table = (props) => {
   const { heads, rows } = props
@@ -25,14 +26,14 @@ const Table = (props) => {
   }
 
   return (
-    <table>
+    <StyledTable>
       <thead>
         <tr>{renderTheads()}</tr>
       </thead>
       <tbody>
         {renderTrows()}
       </tbody>
-    </table>
+    </StyledTable>
   )
 }
 

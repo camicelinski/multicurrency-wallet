@@ -2,15 +2,18 @@ import React from 'react'
 import CurrencyWallet from '../CurrencyWallet'
 import Header from '../Header/'
 import { ResetStyle, GlobalStyle } from '../../styled'
+import StyledApp from './App.styled'
 
 export const App = () => {
   return (
-    <div>
+    <>
       <ResetStyle />
       <GlobalStyle />
-      <Header />
-      <CurrencyWallet />
-    </div>
+      <StyledApp>
+        <Header />
+        <CurrencyWallet />
+      </StyledApp>
+    </>
   )
 }
 

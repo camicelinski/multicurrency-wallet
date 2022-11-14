@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // import { getCurrenciesList } from '../../modules/exchangerates/exchangerates.actions'
 import options from '../../data/currencyOptions'
 import Error from '../Error'
+import StyledFormField from './FormField.styled'
 
 const FormField = (props) => {
   const { name, label, type, step, required, value, onChange, errors } = props
@@ -31,7 +32,7 @@ const FormField = (props) => {
 
   if (type === 'select') {
     return (
-      <>
+      <StyledFormField>
         <label htmlFor={name}>
           {label}
         </label>
@@ -54,11 +55,11 @@ const FormField = (props) => {
           })}
         </select>
         {showErrors()}
-      </>
+      </StyledFormField>
     )
   } else {
     return (
-      <>
+      <StyledFormField>
         <label htmlFor={name}>
           {label}
         </label>
@@ -71,7 +72,7 @@ const FormField = (props) => {
           onChange={onChange}
         />
         {showErrors()}
-      </>
+      </StyledFormField>
     )
   }
 }

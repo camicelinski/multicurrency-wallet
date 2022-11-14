@@ -5,7 +5,8 @@ const tableHeads = [
   { head: 'Purchase price' },
   { head: 'Current exchange rate' },
   { head: 'Current value' },
-  { head: 'Profit/Loss' }
+  { head: 'Profit/Loss' },
+  { head: '' }
 ]
 
 export default tableHeads

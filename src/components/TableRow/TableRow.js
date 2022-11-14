@@ -2,14 +2,41 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { removeRowFromState, pushRowsToLS } from '../../modules/localStorage/localStorage.actions'
+import StyledTableRow from './TableRow.styled'
+import Button from '../Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const TableRow = (props) => {
   const { row } = props
   const dispatch = useDispatch()
 
+  const getClassName = (cell, index) => {
+    if (index === 6) {
+      const cellSliced = cell.slice(0, 4)
+      console.log(cellSliced)
+      const cellNumber = Number(cellSliced)
+      console.log(cellNumber)
+      if (cellNumber >= 0) {
+        return 'profit'
+      } else {
+        return 'loss'
+      }
+    } else {
+      return ''
+    }
+  }
+
   const renderCells = () => {
     return row.cells.map((cell, index) => {
-      return <td key={index}>{cell}</td>
+      return (
+        <td
+          key={index}
+          className={getClassName(cell, index)}
+        >
+          {cell}
+        </td>
+      )
     })
   }
 
@@ -19,16 +46,20 @@ const TableRow = (props) => {
   }
 
   return (
-    <tr>
+    <StyledTableRow>
       {renderCells()}
       <td>
-        <button
+        <Button
           onClick={removeRow}
+          className={'btn btn--delete'}
         >
-          X
-        </button>
+          <FontAwesomeIcon
+            icon={faTrash}
+            className={'meeting__icon--delete'}
+          />
+        </Button>
       </td>
-    </tr>
+    </StyledTableRow>
   )
 }
 

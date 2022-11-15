@@ -17,7 +17,6 @@ const useRow = () => {
   }
 
   const createValuesForTableRow = () => {
-    // console.log(currentRate)
     const currentExchangeRate = currentRate
     const currentValueNumber = getCurrentValue()
     const currentValue = `${currentValueNumber} PLN`

@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 
 const StyledTableRow = styled.tr`
+  font-size: 0.9rem;
   background: var(--color-shadow-light);
   text-align: center;
   height: 70px;
-  // border: none;
   white-space: nowrap;
-  vertical-align: midlles;
-
+  vertical-align: middle;
+  
   &:hover {
     background: var(--color-shadow-hover);
   }
 
   td {
-    width: 14%;
+    margin-top: 10px;
+    width: 10%;
   }
 
   td:first-child {
@@ -25,11 +26,13 @@ const StyledTableRow = styled.tr`
   }
 
   td.profit {
+    width: 20%;
     color: var(--text-green);
     font-weight: bold;
   }
 
-  td.loss {
+  td.loss {    
+    width: 20%;
     color: var(--text-error);
     font-weight: bold;
   }

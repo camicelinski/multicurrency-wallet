@@ -14,9 +14,7 @@ const TableRow = (props) => {
   const getClassName = (cell, index) => {
     if (index === 6) {
       const cellSliced = cell.slice(0, 4)
-      console.log(cellSliced)
       const cellNumber = Number(cellSliced)
-      console.log(cellNumber)
       if (cellNumber >= 0) {
         return 'profit'
       } else {

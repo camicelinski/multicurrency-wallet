@@ -28,7 +28,7 @@ const formFields = [
     type: 'number',
     step: '0.01',
     err: 'price must be greater than zero',
-    required: false
+    required: true
   }
 ]
 

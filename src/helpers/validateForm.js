@@ -15,6 +15,11 @@ const validateForm = (values) => {
           text: 'this field is mandatory',
           field: field
         })
+      } else if (type === 'number' && (value <= 0 || isNaN(value))) {
+        errors.push({
+          text: err,
+          field: field
+        })
       }
     }
 
@@ -29,13 +34,6 @@ const validateForm = (values) => {
     }
 
     if (type === 'date' && value > currentDate) {
-      errors.push({
-        text: err,
-        field: field
-      })
-    }
-
-    if (type === 'number' && value.length > 0 && value <= 0) {
       errors.push({
         text: err,
         field: field

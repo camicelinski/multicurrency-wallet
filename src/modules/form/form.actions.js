@@ -7,13 +7,6 @@ export const setFieldValue = (name, value) => {
   }
 }
 
-export const submitForm = () => {
-  return {
-    type: types.SUBMIT_FORM,
-    payload: true
-  }
-}
-
 export const clearFields = () => {
   return {
     type: types.CLEAR_FIELDS

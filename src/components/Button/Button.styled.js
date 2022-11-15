@@ -13,10 +13,6 @@ const StyledButton = styled.button`
   height: 2.4rem;
   margin-top: 19px;
 
-  :active {
-    
-  }
-
   &:hover {   
     background-color: var(--color-contrast-hover);
   }
@@ -37,12 +33,6 @@ const StyledButton = styled.button`
       color: #AB9CA5;
     }
   }
-  /*
-  @media screen and (min-width: 960px) {
-    :hover {
-      color: var(--text-highlight);
-    }
-  } */
 `
 
 export default StyledButton

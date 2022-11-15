@@ -3,13 +3,17 @@ import styled from 'styled-components'
 const StyledTableRow = styled.tr`
   background: var(--color-shadow-light);
   text-align: center;
-  height: 50px;
+  height: 70px;
   // border: none;
   white-space: nowrap;
-  vertical-align: midlle;
+  vertical-align: midlles;
 
   &:hover {
     background: var(--color-shadow-hover);
+  }
+
+  td {
+    width: 14%;
   }
 
   td:first-child {

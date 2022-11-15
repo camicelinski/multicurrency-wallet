@@ -4,7 +4,7 @@ const StyledError = styled.div`
   align-items: flex-start;
   color: var(--text-error);
   display: flex;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 300;
   justify-content: flex-start;
   margin-top: 0;

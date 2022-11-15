@@ -8,7 +8,7 @@ const StyledTable = styled.table`
   thead {
     text-transform: uppercase;
     vertical-align: bottom;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 
     tr th {
       padding: 10px;

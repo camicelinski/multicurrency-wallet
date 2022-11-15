@@ -35,7 +35,7 @@ const validateForm = (values) => {
       })
     }
 
-    if (type === 'number' && value <= 0) {
+    if (type === 'number' && value.length > 0 && value <= 0) {
       errors.push({
         text: err,
         field: field

@@ -2,13 +2,15 @@ import styled from 'styled-components'
 
 const StyledFormField = styled.div`
   font-size: 1rem;
+  margin-right: 1rem;
   // position: relative;
 
   :not(:first-child) {
-    margin-top: 1.4rem;
+    // margin-top: 1.4rem;
   }
 
-  input {
+  input,
+  select {
     background: var(--text-secondary);
     border-radius: var(--radius-primary);
     border: none;
@@ -18,6 +20,7 @@ const StyledFormField = styled.div`
     outline: 1px solid transparent;
     padding: 10px;
     width: 100%;
+    height: 2.4rem;
         
     // :focus,
     // :valid {
@@ -36,7 +39,7 @@ const StyledFormField = styled.div`
     color: var(--text-primary);
     left: 1px;
     letter-spacing: 1px;
-    padding: 10px;
+    padding: 0 10px 10px;
     // position: absolute;
     // top: 1px;
     transition: transform var(--transition-style), font-size var(--transition-style);

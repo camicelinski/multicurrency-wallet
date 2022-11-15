@@ -6,9 +6,12 @@ const StyledButton = styled.button`
   color: var(--color-shadow-dark);
   letter-spacing: 0.1rem;
   text-transform: uppercase;
-  padding: 0.75rem 0;
+  text-align: center;
+  padding: 10px 20px;
   font-size: 1rem;
   border: none;
+  height: 2.4rem;
+  margin-top: 19px;
 
   :active {
     
@@ -19,6 +22,7 @@ const StyledButton = styled.button`
   }
 
   &.btn--delete {
+    margin-top: 0;
     min-width: 0;
     width: max-content;
     font-size: 1rem;
@@ -27,10 +31,10 @@ const StyledButton = styled.button`
     border-radius: var(--radius-secondary);
     border: none;
     outline: 1px solid transparent;
-    padding: 10px 12px;    
+    padding: 10px 20px;    
 
     &:hover {
-      color: #D0C8CD;
+      color: #AB9CA5;
     }
   }
   /*
